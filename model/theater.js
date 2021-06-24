@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
-const theater = new mongoose.Schema({
+const Theater = new mongoose.Schema({
      
      name: {
          type:String,
          required: true,
      },
 
-     movieName: {
-         type: String,
-         required: true,
-     },
-
+    movieId: {
+        type: String,
+        required:true,
+    },
      timings: {
-         type: Array,
+         type: String,
          required: true,
      },
 
@@ -30,4 +29,4 @@ const theater = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("theater", Theater, "theater");
+module.exports = mongoose.model("Theater", Theater, "Theater");

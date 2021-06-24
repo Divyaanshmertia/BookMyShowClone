@@ -69,13 +69,14 @@ exports.addMovie = (req, res) => {
 }
 
 exports.AddTheater = (req, res) => {
-    let { name, movieId, timings, price, seatsAvailaiblity } = req.body
+  let { name, movieId, timings, price, seatsAvailaiblity } = req.body
+  movieId = mongoose.Types.ObjectId(movieId)
     let theater = new Theater({
         name,
         movieId,
         timings,
         price,
-        seatsAvailaiblity,
+        seatsAvailaiblity
     })
   theater.save()
     .then(() => {
@@ -86,6 +87,23 @@ exports.AddTheater = (req, res) => {
         console.error("there was a problem while adding details");
         return res.status(500).send("data entry invalid");
     })
+}
+exports.getshowdetails = (req, res) => {
+  let { movieId } = req.params
+  movieId = mongoose.Types.ObjectId(movieId);
+  movie.find({ _id: movieId }).then(() => {
+    theater.find({ movieId }).then(() => {
+      console.log(theater);
+    return res.status(200).send(theater);
+    }).catch(() => {
+      console.error("error has occured")
+    return res.status(500).send("No theater Found");
+    })
+    
+  }).catch(() => {
+    console.error("error has occured")
+    return res.status(500).send("No theater Found");
+  })
 }
 
 

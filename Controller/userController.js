@@ -3,7 +3,7 @@ const Movie = require("../model/movie");
 const Theater = require("../model/Theater");
 const mongoose = require("mongoose");
 const JWT = require("jsonwebtoken");
-const movie = require("../model/movie");
+// const movie = require("../model/movie");
 
 exports.Signup = (req, res) => {
     let { firstName, lastName, email, password, DOB, phoneNumber } = req.body;
@@ -79,7 +79,7 @@ exports.AddTheater = (req, res) => {
         seatsAvailaiblity
     })
   theater.save()
-    .then(() => {
+    .then((theater) => {
         console.log("Theater data was added successfully");
         return res.status(200).send(theater);
 
@@ -89,17 +89,20 @@ exports.AddTheater = (req, res) => {
     })
 }
 exports.getshowdetails = (req, res) => {
-  let { movieId } = req.params
-  movieId = mongoose.Types.ObjectId(movieId);
-  movie.find({ _id: movieId }).then(() => {
-    theater.find({ movieId }).then(() => {
-      console.log(theater);
-    return res.status(200).send(theater);
-    }).catch(() => {
-      console.error("error has occured")
-    return res.status(500).send("No theater Found");
+  let { movieID } = req.params;
+  movieID = mongoose.Types.ObjectId(movieID);
+  
+  Movie.find({ _id: movieID }).then((movie) => {
+    console.info("MOVIE HAS BEEN FOUND");
+   return  Theater.find({movieId: movieID}).then((theatre)=>{
+    console.info("AVALAIBLE THEATRES ARE:");     
+    return res.status(200).send({movie,theatre});
+    }).catch(()=>{
+      console.error("in theather error");
+      return res.status(500).send("in theater error");
     })
     
+ 
   }).catch(() => {
     console.error("error has occured")
     return res.status(500).send("No theater Found");
@@ -109,7 +112,7 @@ exports.getshowdetails = (req, res) => {
 
 // exports.LogOut = (req,res) =>{
 
-// }
+ 
 
 const getToken = (user) => {
     return token = JWT.sign(

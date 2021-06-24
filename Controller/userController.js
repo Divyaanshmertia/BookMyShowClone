@@ -2,30 +2,33 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 const JWT = require("jsonwebtoken")
 
-exports.userSignup = (req,res)=>{
-    let{firstName, lastName, email, Password} = req.body;
+exports.Signup = (req, res) => {
+    let { firstName, lastName, email, password, DOB, phoneNumber } = req.body;
     let user = new User({
-        firstName,
-        lastName,
-        email,
-        Password,
+      firstName,
+      lastName,
+      email,
+        password,
+        DOB,
+      phoneNumber
+      
     });
-
-    user.save().then(()=>{
-        const token = getToken(user);
-        return res.status(200).send({user, token});
-    }).catch((ERROR) =>{
-        console.error("error");
-        res.status(500).send("ERROR")
-    })
-
-}
-
+    user
+      .save()
+      .then(() => {
+        const token= getToken(user)
+        return res.status(200).send({ user, token })
+      })
+      .catch((error) => {
+        console.error(error);
+        return res.status(500).send("ERROR");
+      });
+};
 
 exports.Login = (req,res) => {
     let {email,Password} = req.body;
     User.findOne({email:email}).then((user) => {
-         //console.log(user);
+         console.log(user);
          console.info(`user with ${email} was found`);
          if(Password === user.Password){
              const token = getToken(user);
@@ -49,19 +52,19 @@ exports.Login = (req,res) => {
 
 // }
 
+const getToken = (user) => {
+    return token = JWT.sign(
+      {
+        email: user.email,
+        
+      },
+      "JIETSecretKey",
+      {
+        expiresIn: "1h",
+      }
+    );
+  }
 
-exports.Task
 
 
 
-const getToken = (user) =>{
-    return JWT.sign(
-        {
-            email: user.email,
-        },
-        "SECRETKEY",
-        {
-            expiresIn:"1h",
-        }
-    )
-}

@@ -3,14 +3,15 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-
+const cors = require("cors");
+const userRoutes = require("./Routes/userRoutes");
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 
 //Connecting Database to API to store data  
-mongoose.connect("mongodb://localhost:27017/hsaDB",{
+mongoose.connect("mongodb://localhost:27017/BookMyShowClone",{
     useUnifiedTopology:true,
     useNewUrlParser:true,
 })
@@ -23,11 +24,11 @@ mongoose.connect("mongodb://localhost:27017/hsaDB",{
     })
 
 
-    
+app.use(userRoutes);
     
     
     //Port Number for API calling
-    var PORT = 9160;
+    const PORT = 9160;
     app.listen(PORT,()=>{
         console.log(`Connection Established with port number: ${PORT}`);
     })

@@ -1,0 +1,25 @@
+.Home {
+	font-family: sans-serif;
+	padding: 10px 40px;
+	padding-bottom: 20px;
+	width: 100%;
+	position: relative;
+	/* justify-content: center; */
+}
+
+.Home > div {
+	background-color: rgb(219, 208, 208);
+	color: #b3b8bb;
+	height: 300px;
+	width: 70%;
+	margin-left: 190px;
+}
+
+.slick-dots li.slick-active button:before {
+	color: #ffffff;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	color: #881798;
+}

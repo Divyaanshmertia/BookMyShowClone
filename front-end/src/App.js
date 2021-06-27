@@ -4,11 +4,14 @@ import { Switch } from "react-router-dom";
 import HallForm from "./components/HallForm";
 import SignUp from "./components/Signup";
 import Login from "./components/Login";
-// import BannerExample from "./components/MoviePage/Slider";
+
 import ShowCards from "./components/notdecided";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/home";
+import Error from "./components/error";
+import ShowCards1 from "./components/MovieCards";
+import Home1 from "./components/home1";
 
 class App extends React.Component {
 	state = {
@@ -32,11 +35,9 @@ class App extends React.Component {
 				<div>
 					<Header />
 					<Switch>
-						<Route path={"/"} exact></Route>
-						<Route path={"/Homepage"}>
+						<Route path={"/"} exact>
 							<Home />
-
-							<ShowCards firstName={"Divyaansh"} lastName={"Mertia"} />
+							<ShowCards />
 						</Route>
 						<Route path={"/login"}>
 							<Login setUserState={this.setUserState} />
@@ -48,13 +49,21 @@ class App extends React.Component {
 							<SignUp setUserState={this.setUserState} />
 						</Route>
 						<Route path={"/about-us"}>
-							<h1> about us</h1>
-						</Route>
-						<Route path={"/contact-us"}>
 							<h1>This is contact-us </h1>
 						</Route>
+						<Route path={"/movies"}>
+							<Home1 />
+							<ShowCards1 />
+						</Route>
+						<Route path={"/contact-us"}></Route>
+						<Route path={"/error"}>
+							<Error />
+						</Route>
 						<Route path={"/**"}>
-							<Redirect to={"/"} />
+							<Redirect to={"/error"} />
+						</Route>
+						<Route path={"/location"}>
+							<pan>ON CONSTRUCTION</pan>
 						</Route>
 					</Switch>
 					<Footer />

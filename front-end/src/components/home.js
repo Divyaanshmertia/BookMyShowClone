@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../stylesheets/home.css";
 import Slider from "react-slick";
 
-export default function Home() {
+export default function Home(props) {
 	const renderSlides = () =>
 		[
 			{

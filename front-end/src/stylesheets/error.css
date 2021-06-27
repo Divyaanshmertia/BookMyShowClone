@@ -1,0 +1,18 @@
+.error_text {
+	font-size: 50px;
+	color: rgb(240, 36, 70);
+}
+
+.error_text1 {
+	font-size: 20px;
+	padding-top: 10%;
+	color: rgb(240, 36, 70);
+	/* text-align: center; */
+	justify-content: center;
+}
+
+#icon-no-search {
+	width: 30%;
+	height: 30%;
+	margin-left: 20%;
+}

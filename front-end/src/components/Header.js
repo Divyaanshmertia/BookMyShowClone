@@ -21,53 +21,59 @@ function Header() {
 
 				<div className="header_nav">
 					<div>
-						<button class="header_loc">
-							<i aria-hidden="true" class="world icon"></i>
-						</button>
+						<a href="/location">
+							<button class="header_loc">Location</button>
+						</a>
 					</div>
 					<div>
-						<button type="submit" className="header_log">
-							Sign in
-						</button>
+						<a href="/signup">
+							<button type="submit" className="header_log">
+								Sign in
+							</button>
+						</a>
 					</div>
 					<div>
-						<i class="bars icon" style={{ color: "white" }}></i>
+						<button type="submit" className="header_menu">
+							<i class="bars icon" style={{ color: "white" }}></i>
+						</button>
 					</div>
 				</div>
 			</div>
 			<div className="second_header">
 				<div className="second_header1">
-					<a href="/" class="sec_opt1">
+					<a href="/movies" class="sec_opt1">
 						Movies
 					</a>
-					<a href="/" class="sec_opt1">
+					<a href="/error" class="sec_opt1">
 						Stream
 					</a>
 					<a href="/" class="sec_opt1">
 						Events
 					</a>
-					<a href="/" class="sec_opt1">
+					<a href="/error" class="sec_opt1">
 						Plays
 					</a>
-					<a href="/" class="sec_opt1">
+					<a href="/error" class="sec_opt1">
 						Sports
 					</a>
-					<a href="/" class="sec_opt1">
+					<a href="/error" class="sec_opt1">
 						Activities
 					</a>
-					<a href="/buzz" class=""></a>
+					<a href="/error" class="sec_opt1">
+						Buzz
+					</a>
 				</div>
 				<div className="sec_header_navbar">
-					<a href="/" class="sec_opt2">
+					<a href="/error" class="sec_opt2">
 						ListYourShow
 					</a>
-					<a href="/" class="sec_opt2">
+					<a href="/error" class="sec_opt2">
 						Corporates
 					</a>
-					<a href="/" class="sec_opt2">
+					<a href="/error" class="sec_opt2">
 						Offers
 					</a>
-					<a href="/" class="sec_opt2">
+					<a href="/error" class="sec_opt2">
 						Gift Cards
 					</a>
 				</div>

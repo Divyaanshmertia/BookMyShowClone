@@ -58,6 +58,10 @@ a:hover {
 	width: 80vh;
 }
 
+.header_input > input:focus {
+	outline: none;
+}
+
 .search_text {
 	width: 95%;
 	font-size: 13px;
@@ -74,6 +78,43 @@ a:hover {
 	justify-content: flex-end;
 	column-gap: 23px;
 	margin-right: 43px;
+}
+
+.header_log {
+	display: inline-block;
+	background-color: rgb(255, 70, 101);
+	color: white;
+	border-radius: 5px;
+	font-size: 12px;
+	height: 25px;
+	width: 67px;
+	border: transparent;
+	cursor: pointer;
+}
+
+.header_loc {
+	display: inline-block;
+	background-color: rgb(255, 70, 101);
+	color: white;
+	border-radius: 5px;
+	font-size: 12px;
+	height: 25px;
+	width: 67px;
+	border: transparent;
+	cursor: pointer;
+}
+
+.header_menu {
+	border-radius: 20px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+}
+
+.header_menu:hover {
+	background-color: rgba(255, 255, 255, 0.253);
 }
 
 /*ANOTHER HEADER*/

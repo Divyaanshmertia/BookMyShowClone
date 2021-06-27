@@ -7,7 +7,7 @@ function Footer() {
 			<div className="footer_start">
 				<div className="footer_home">
 					<span className="fh_home">
-						<a href="">Home</a>
+						<a href="/Homepage">Home</a>
 					</span>
 				</div>
 				{/* </div> */}

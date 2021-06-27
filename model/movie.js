@@ -30,6 +30,11 @@ const Movie = new mongoose.Schema({
          default: false,
 
          
+    },
+    link: {
+        type: String,
+        required: true,
+         
      }
 
 });

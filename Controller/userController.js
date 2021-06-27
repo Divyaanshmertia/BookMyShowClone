@@ -50,14 +50,15 @@ exports.Login = (req,res) => {
 }
 
 exports.addMovie = (req, res) => {
-    let { name, language, duration, ageBoundation, releaseDate, is3D } = req.body;
+    let { name, language, duration, ageBoundation, releaseDate, is3D, link } = req.body;
     let movie = new Movie({
         name,
         language,
         duration,
         ageBoundation,
         releaseDate,
-        is3D
+      is3D,
+        link
     })
     movie.save().then(() => {
         console.log("Movie Added Successfully");
@@ -108,6 +109,21 @@ exports.getshowdetails = (req, res) => {
     return res.status(500).send("No theater Found");
   })
 }
+
+
+
+// get all the movies 
+exports.getAllMovies = (req, res) => {
+  const movie = Movie.find({}).then((movie) => {
+    console.log("All Found")
+    return res.status(200).send(movie)
+    
+  }).catch((error) => {
+    console.log("error occured");
+    return res.status(500).send("Problem", error)
+  })
+}
+
 
 
 // exports.LogOut = (req,res) =>{

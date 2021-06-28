@@ -1,127 +1,114 @@
-import React, { Component } from "react";
-import "../stylesheets/style.css";
+import React, { useState } from "react";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
-// import user from "../../../model/user";
+import { useHistory } from "react-router-dom";
 
-class SignUp extends React.Component {
-	state = { user: {} };
+const SignUp = (props) => {
+  const history = useHistory();
+  const { setUserState } = props;
+  const [user, setUser] = useState({});
 
-	onSubmitClick = async (event) => {
-		event.preventDefault();
-		console.log(this.state.user);
-		await Axios.post("http://localhost:9160/Signup", this.state.user)
-			.then(({ data }) => {
-				localStorage.setItem("user", JSON.stringify(data));
-				this.props.setUserState(data.user);
-				console.info(data);
-			})
-			.catch((error) => {
-				console.error(error);
-			})
-			.finally(() => {
-				console.info("Signup API called");
-			});
-	};
+  const onSubmitClick = async (event) => {
+    event.preventDefault();
+    console.log(user);
+    await Axios.post("http://localhost:9160/signup", user)
+      .then(({ data }) => {
+        localStorage.setItem("user", JSON.stringify(data));
+        console.info(data);
+        setUserState(data.user);
+        history.push("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-	render() {
-		return (
-			<div className={"section"}>
-				<form className={"ui form"}>
-					<h4 className={"ui dividing header"}>SignUp</h4>
-					<div className={"field"}>
-						<div className={"two-fields"}>
-							<label>First Name</label>
-							<div className={"field"}>
-								<input
-									type={"text"}
-									placeholder={"First Name *"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, firstName: e.target.value },
-										});
-									}}
-								/>
-							</div>
-							<label>Last Name</label>
-							<div className={"field"}>
-								<input
-									type={"text"}
-									placeholder={"Last Name *"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, lastName: e.target.value },
-										});
-									}}
-								/>
-							</div>
-							<label>e-mail</label>
-							<div className={"field"}>
-								<input
-									type={"email"}
-									placeholder={"Email *"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, email: e.target.value },
-										});
-									}}
-								/>
-							</div>
-							<label>Password</label>
-							<div className={"field"}>
-								<input
-									type={"password"}
-									placeholder={"Password *"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, passWord: e.target.value },
-										});
-									}}
-								/>
-							</div>
-							<label>DOB</label>
-							<div className={"field"}>
-								<input
-									type={"Date"}
-									placeholder={"DOB *"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, DOB: e.target.value },
-										});
-									}}
-								/>
-							</div>
-							<label>PhoneNumber</label>
-							<div className={"field"}>
-								<input
-									type={"Number"}
-									placeholder={"phoneNumber*"}
-									onChange={(e) => {
-										this.setState({
-											user: { ...this.state.user, phoneNumber: e.target.value },
-										});
-									}}
-								/>
-							</div>
-						</div>
-					</div>
-
-					<button
-						className={"ui primary button"}
-						style={{ backgroundColor: "red" }}
-						onClick={this.onSubmitClick}
-					>
-						Submit
-					</button>
-
-					<a href="/login" style={{ paddingLeft: "10px", fontWeight: "500" }}>
-						Already have account?
-					</a>
-				</form>
-				<div></div>
-			</div>
-		);
-	}
-}
+  return (
+    <div className={"section"}>
+      <form className={"ui form"}>
+        <h4 className={"ui dividing header"}>SignUp</h4>
+        <div className={"field"}>
+          <label>First Name</label>
+          <div className={"two-fields"}>
+            <div className={"field"}>
+              <input
+                type={"text"}
+                placeholder={"First Name *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    firstName: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={"field"}>
+              <input
+                type={"text"}
+                placeholder={"Last Name *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    lastName: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={"field"}>
+              <input
+                type={"email"}
+                placeholder={"Email *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    email: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={"field"}>
+              <input
+                type={"password"}
+                placeholder={"Password *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    password: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={"field"}>
+              <input
+                type={"Date"}
+                placeholder={"Date *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    DOB: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className={"field"}>
+              <input
+                type={"Number"}
+                placeholder={"PhoneNumber *"}
+                onChange={(e) => {
+                  setUser({
+                    ...user,
+                    phoneNumber: e.target.value,
+                  });
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <button className={"ui primary button"} onClick={onSubmitClick}>
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default SignUp;

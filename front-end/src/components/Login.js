@@ -62,7 +62,7 @@ class Login extends React.Component {
 					<button
 						className={"ui primary button"}
 						onClick={this.onSubmitClick}
-						style={{ backgroundColor: "red" }}
+						style={{ backgroundColor: "#d84c4c" }}
 					>
 						Submit
 					</button>

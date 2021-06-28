@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Route } from "react";
 import "../stylesheets/MovieCard.css";
 import axios from "axios";
 import Acard from "./acard";
@@ -26,7 +26,7 @@ const ShowCards = (props) => {
 	return (
 		<div className={"section"}>
 			<h1 style={{ padding: "5vh 5%" }}>
-				{"/Homepage" ? String("Available Movies") : String("MOVIES")}
+				{<Route path={"/movies"} /> ? String("MOVIES:") : String("MOVIES")}
 			</h1>
 			<div class="ui three column grid">{renderCards}</div>
 		</div>

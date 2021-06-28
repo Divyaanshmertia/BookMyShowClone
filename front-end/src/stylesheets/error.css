@@ -1,18 +1,24 @@
 .error_text {
-	font-size: 50px;
+	font-size: 40px;
 	color: rgb(240, 36, 70);
+	margin-left: 30px;
+	font-weight: bold;
 }
 
 .error_text1 {
-	font-size: 20px;
-	padding-top: 10%;
+	font-size: 40px;
+	padding-top: 30%;
 	color: rgb(240, 36, 70);
 	/* text-align: center; */
+	margin-left: 30px;
 	justify-content: center;
+	z-index: -1;
+	text-align: center;
 }
 
 #icon-no-search {
 	width: 30%;
 	height: 30%;
 	margin-left: 20%;
+	position: relative;
 }

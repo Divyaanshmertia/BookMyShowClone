@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import "../stylesheets/style.css";
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 // import user from "../../../model/user";
 
 class SignUp extends React.Component {
@@ -104,6 +105,7 @@ class SignUp extends React.Component {
 							</div>
 						</div>
 					</div>
+
 					<button
 						className={"ui primary button"}
 						style={{ backgroundColor: "red" }}
@@ -111,7 +113,12 @@ class SignUp extends React.Component {
 					>
 						Submit
 					</button>
+
+					<a href="/login" style={{ paddingLeft: "10px", fontWeight: "500" }}>
+						Already have account?
+					</a>
 				</form>
+				<div></div>
 			</div>
 		);
 	}

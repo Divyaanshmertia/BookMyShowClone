@@ -1,4 +1,5 @@
 import React from "react";
+// import SearchBar from "./searchBar";
 import "../stylesheets/Header.css";
 import logo from "../picture/bookmyshow.png";
 
@@ -6,7 +7,9 @@ function Header() {
 	return (
 		<header>
 			<div className="header1">
-				<img className="header_logo" src={logo} alt="logo" />
+				<a href="/">
+					<img className="header_logo" src={logo} alt="logo" />
+				</a>
 
 				<div className="header_search">
 					<div className="header_input">
@@ -28,7 +31,7 @@ function Header() {
 					<div>
 						<a href="/signup">
 							<button type="submit" className="header_log">
-								Sign in
+								Sign Up
 							</button>
 						</a>
 					</div>

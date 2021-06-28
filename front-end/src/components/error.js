@@ -12,6 +12,7 @@ function Error() {
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="-1 -1 256 242"
 					id="icon-no-search"
+					style={{ zIndex: "1" }}
 				>
 					<g fill="none" fill-rule="evenodd">
 						<path

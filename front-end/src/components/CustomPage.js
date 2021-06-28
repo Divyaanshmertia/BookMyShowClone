@@ -28,21 +28,19 @@ const CustomPage = (props) => {
   return (
     <div className={"new"}>
       <div className={"seconddiv"}>
-        <a class="image" href="javascript:">
-          <div className={"new"}>
-            <img
-              src={cards.link}
-              style={{ borderRadius: "20px", width: "222px", height: "290px" }}
-            />
+        <div className={"new"}>
+          <img
+            src={cards.link}
+            style={{ borderRadius: "20px", width: "222px", height: "290px" }}
+          />
 
-            <h3>{cards.name}</h3>
-            <p>{cards.ageBoundation}</p>
-            <p>{cards.is3D ? String("3D & 2D") : String("2D")}</p>
-            <Link to={`/movieseat/${cards._id}`}>
-              <button>BookingSeats </button>
-            </Link>
-          </div>
-        </a>
+          <h3>{cards.name}</h3>
+          <p>{cards.ageBoundation}</p>
+          <p>{cards.is3D ? String("3D & 2D") : String("2D")}</p>
+          <Link to={`/movieseat/${cards._id}`}>
+            <button>BookingSeats </button>
+          </Link>
+        </div>
 
         <div class="content">
           <a class="header" href="#"></a>

@@ -26,19 +26,52 @@ const CustomPage = (props) => {
   }, []);
 
   return (
-    <div className={"new"}>
-      <div className={"seconddiv"}>
-        <div className={"new"}>
-          <img
-            src={cards.link}
-            style={{ borderRadius: "20px", width: "222px", height: "290px" }}
-          />
+    <div
+      className={"new"}
+      style={{
+        backgroundImage: `url(${cards.BannerLink})`,
+      }}
+    >
+      <div className={"seconddiv"} style={{ display: "flex" }}>
+        {/* <div className={"new"}> */}
+        <img
+          src={cards.link}
+          style={{
+            borderRadius: "20px",
+            width: "auto",
+            height: "392px",
+            marginTop: "27px",
+            marginLeft: "40px",
+          }}
+        />
 
-          <h3>{cards.name}</h3>
+        <div className="setName">
+          <h1>{cards.name}</h1>
+
           <p>{cards.ageBoundation}</p>
+
           <p>{cards.is3D ? String("3D & 2D") : String("2D")}</p>
+
           <Link to={`/movieseat/${cards._id}`}>
-            <button>BookingSeats </button>
+            <button
+              style={{
+                display: "inline-block",
+                backgroundColor: "rgb(255, 70, 101)",
+                color: "white",
+                borderRadius: "5px",
+                fontSize: "initial",
+                height: "32px",
+                width: "174px",
+                border: "transparent",
+                cursor: "pointer",
+                paddingRight: "12px",
+                paddingLeft: "12px",
+                paddingTop: "8px",
+                paddingBottom: "18px",
+              }}
+            >
+              BookingSeats{" "}
+            </button>
           </Link>
         </div>
 
@@ -46,6 +79,7 @@ const CustomPage = (props) => {
           <a class="header" href="#"></a>
         </div>
       </div>
+      //{" "}
     </div>
   );
 };

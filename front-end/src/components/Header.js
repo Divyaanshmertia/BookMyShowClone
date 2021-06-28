@@ -11,7 +11,7 @@ function Header() {
 					<img className="header_logo" src={logo} alt="logo" />
 				</a>
 
-				<div className="header_search">
+				{/* <div className="header_search">
 					<div className="header_input">
 						<i className="search icon" style={{ color: "grey" }} />
 						<input
@@ -20,7 +20,7 @@ function Header() {
 							placeholder="Search for Movies, Events, Plays, Sports and Activities"
 						/>
 					</div>
-				</div>
+				</div> */}
 
 				<div className="header_nav">
 					<div>

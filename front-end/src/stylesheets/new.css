@@ -1,0 +1,17 @@
+.new {
+  /* background-image: url("https://moviekoop.com/Images/Cover_Photos/3-idiots-hindi-movie.jpg"); */
+
+  background-image: linear-gradient(
+      90deg,
+      rgb(34, 34, 34) 24.97%,
+      rgb(34, 34, 34) 38.3%,
+      rgba(34, 34, 34, 0.04) 97.47%,
+      rgb(34, 34, 34) 100%
+    ),
+    url("https://moviekoop.com/Images/Cover_Photos/3-idiots-hindi-movie.jpg");
+  background-repeat: repeat-x;
+  background-position: right;
+}
+
+.secondiv {
+}

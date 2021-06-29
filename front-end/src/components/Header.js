@@ -1,9 +1,22 @@
-import React from "react";
-// import SearchBar from "./searchBar";
+import React, { useState } from "react";
+import SearchBar from "./searchBar";
 import "../stylesheets/Header.css";
 import logo from "../picture/bookmyshow.png";
+// import { useHistory } from "react-router-dom";
 
 function Header() {
+	// const history = useHistory();
+	// const routeChange = () => {
+	// 	let path = `http://localhost:9160/search`;
+	// 	history.push(path);
+	// };
+
+	const [find, setFind] = useState("");
+	const inputEvent = (event) => {
+		const data = event.target.value;
+		console.log(data);
+		setFind(data);
+	};
 	return (
 		<header>
 			<div className="header1">
@@ -11,16 +24,21 @@ function Header() {
 					<img className="header_logo" src={logo} alt="logo" />
 				</a>
 
-				{/* <div className="header_search">
+				<div className="header_search">
 					<div className="header_input">
 						<i className="search icon" style={{ color: "grey" }} />
+
 						<input
 							className="search_text"
 							type="text"
 							placeholder="Search for Movies, Events, Plays, Sports and Activities"
+							value={find}
+							onChange={inputEvent}
 						/>
+
+						{find === "" ? null : <SearchBar name={find} />}
 					</div>
-				</div> */}
+				</div>
 
 				<div className="header_nav">
 					<div>

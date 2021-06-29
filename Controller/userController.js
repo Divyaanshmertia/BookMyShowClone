@@ -57,8 +57,10 @@ exports.addMovie = (req, res) => {
 		ageBoundation,
 		releaseDate,
 		is3D,
-		linkBannerLink,
+		link,
+		BannerLink,
 		description,
+		location,
 	} = req.body;
 	let movie = new Movie({
 		name,
@@ -66,10 +68,12 @@ exports.addMovie = (req, res) => {
 		duration,
 		ageBoundation,
 		releaseDate,
+		link,
 		is3D,
 		link,
 		BannerLink,
 		description,
+		location,
 	});
 	movie
 		.save()
@@ -155,6 +159,31 @@ exports.getMoviebyId = (req, res) => {
 		.catch((error) => {
 			console.error(
 				`There was an error while searching for movie with ID: ${id}`
+			);
+			return res.status(500).send("ERROR");
+		});
+};
+
+exports.getResultByName = (req, res) => {
+	let { name } = req.body;
+	// let { location } = req.body;
+
+	// console.log(name);
+	// console.log(req.params);
+	// console.log(req.params.name);
+
+	Movie.find({ name: name })
+		.then((movie) => {
+			if (movie.length > 0) {
+				console.info(`movie with ID: ${name} was successfully found.`);
+				return res.status(200).send(movie);
+			}
+			console.error(`movie with ${name} doesn't exist.`);
+			return res.status(404).send(`movie with ${name} doesn't exist.`);
+		})
+		.catch((error) => {
+			console.error(
+				`There was an error while searching for movie with :${name}`
 			);
 			return res.status(500).send("ERROR");
 		});

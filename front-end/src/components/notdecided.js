@@ -25,9 +25,7 @@ const ShowCards = (props) => {
 
   return (
     <div className={"section"}>
-      <h1 style={{ padding: "5vh 5%" }}>
-        {<Route path={"/movies"} /> ? String("MOVIES:") : String("MOVIES")}
-      </h1>
+      <h1 style={{ padding: "5vh 5%" }}>Movies</h1>
       <div class="ui three column grid">{renderCards}</div>
     </div>
   );

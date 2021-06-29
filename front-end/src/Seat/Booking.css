@@ -239,7 +239,7 @@ label {
   font-weight: 600;
 }
 
-input[type="text"],
+/* input[type="text"],
 input[type="number"] {
   padding: 1em;
   width: 80%;
@@ -249,7 +249,7 @@ input[type="number"] {
   font-size: 1em;
   margin-top: 10px;
   color: #fff;
-}
+} */
 
 .button1 {
   background: #f5f5f5;

@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./Routes/userRoutes");
+const adminRoutes = require("./Routes/adminRoutes");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
@@ -22,6 +23,7 @@ mongoose
   });
 
 app.use(userRoutes);
+app.use(adminRoutes);
 
 // For Seats Booking and Invoice
 

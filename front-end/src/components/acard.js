@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import "../stylesheets/style.css";
 const Acard = (props) => {
   const [screenType, setScreenType] = useState("SHOW");
   const { card } = props;

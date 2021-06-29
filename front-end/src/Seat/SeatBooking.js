@@ -8,6 +8,13 @@ const SeatBooking = ({ history }) => {
   const [selectingSeats, setSelectingSeats] = useState([]);
 
   useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user == null) {
+      return history.push("/login");
+    } else {
+      history.push(`/movieseat/seatBooking`);
+    }
+
     axios.get("http://localhost:9160/seatData").then((res) => {
       setSelectingSeats(
         res.data.map((currentSeat) => {

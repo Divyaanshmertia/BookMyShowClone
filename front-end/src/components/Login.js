@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
+import useWindowSize from "../utils/useWindowSize";
 
 //for toaster message
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = (props) => {
+  const { width } = useWindowSize();
   const { setUserState } = props;
   const history = useHistory();
   const [credentials, setCredentials] = useState({});
@@ -39,55 +41,59 @@ const Login = (props) => {
 
   return (
     <div className={"section"}>
-      <form className={"ui form"}>
-        <h4 className={"ui dividing header"}>Login</h4>
-        <div className={"field"}>
-          <label>Email</label>
-          <div className={"two-fields"}>
+      {width > 500 && (
+        <>
+          <form className={"ui form"}>
+            <h4 className={"ui dividing header"}>Login</h4>
             <div className={"field"}>
-              <input
-                type={"email"}
-                placeholder={"Email *"}
-                onChange={(e) => {
-                  setCredentials({
-                    ...credentials,
-                    email: e.target.value,
-                  });
-                }}
-              />
+              <label>Email</label>
+              <div className={"two-fields"}>
+                <div className={"field"}>
+                  <input
+                    type={"email"}
+                    placeholder={"Email *"}
+                    onChange={(e) => {
+                      setCredentials({
+                        ...credentials,
+                        email: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className={"field"}>
+                  <input
+                    type={"password"}
+                    placeholder={"Password *"}
+                    onChange={(e) => {
+                      setCredentials({
+                        ...credentials,
+                        password: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-            <div className={"field"}>
-              <input
-                type={"password"}
-                placeholder={"Password *"}
-                onChange={(e) => {
-                  setCredentials({
-                    ...credentials,
-                    password: e.target.value,
-                  });
-                }}
-              />
-            </div>
-          </div>
-        </div>
-        <button className={"ui primary button"} onClick={onSubmitClick}>
-          Submit
-        </button>
-        <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={true}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <a href="/signup" style={{ margin: "10px", fontWeight: "bold" }}>
-          Doesn't have a account? Click here...
-        </a>
-      </form>
+            <button className={"ui primary button"} onClick={onSubmitClick}>
+              Submit
+            </button>
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={true}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            <a href="/signup" style={{ margin: "10px", fontWeight: "bold" }}>
+              Doesn't have a account? Click here...
+            </a>
+          </form>
+        </>
+      )}
     </div>
   );
 };

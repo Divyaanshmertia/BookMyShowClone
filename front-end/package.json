@@ -9,6 +9,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "antd": "^4.16.5",
+    "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^4.6.0",
     "material-components-web": "^11.0.0",
     "mdb-ui-kit": "^3.8.0",
@@ -50,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "css-loader": "^5.2.6",
+    "html-loader": "^2.1.2",
+    "ts-loader": "^9.2.3"
   }
 }

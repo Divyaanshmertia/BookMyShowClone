@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <title>Brian Air - Book Flight</title>
+    <meta
+      name="description"
+      content="A simple flight schedule for Brian Air."
+    />
+    <meta name="author" content="Kyle Follansbee" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.scss" />
+    <link rel="icon" type="image/png" href="https://i.imgur.com/o8mXg31.png" />
+  </head>
+  <body>
+    <div id="logo">
+      <a href="/public/index.html">
+        <img
+          src="https://i.imgur.com/RXKKSXw.png"
+          alt="Airline Logo"
+          class="responsive"
+      /></a>
+    </div>
+    <h6>
+      <i><b>We'll get you from B to A.</b></i>
+    </h6>
+    <br />
+    <div class="title">
+      <span class="leftaligned" class="responsive"><b>Select Flight</b></span>
+    </div>
+    <br />
+    <div class="outline">
+      <div>
+        <div id="depart" style="padding: 0px 0px 5px 0px"></div>
+        <div id="destination" style="padding: 0px 0px 5px 0px"></div>
+        <div id="class" style="padding: 0px 0px 5px 0px"></div>
+        <div id="date" style="padding: 0px 0px 5px 0px"></div>
+        <div id="accessible" id="prompt" style="padding: 0px 0px 5px 0px"></div>
+        <div id="prompt" style="padding: 0px 0px 0px 20px"></div>
+      </div>
+    </div>
+    <div class="title">
+      <span class="leftaligned" class="responsive"
+        ><b>Total Passengers</b></span
+      >
+    </div>
+    <br />
+    <div class="outline">
+      <div>
+        <div id="passengersAdult" style="padding: 10px 25px 5px 25px"></div>
+        <div id="passengersYouth" style="padding: 5px 25px 5px 25px"></div>
+        <div id="passengersChild" style="padding: 5px 25px 5px 25px"></div>
+        <div id="passengersInfant" style="padding: 5px 25px 5px 25px"></div>
+      </div>
+    </div>
+    <div class="title">
+      <span class="leftaligned" class="responsive"><b>Select Seat</b></span>
+    </div>
+    <br />
+    <div class="outline">
+      <div id="root" class="centered"></div>
+    </div>
+    <div id="popup" style="padding: 10px 25px 50px 25px"></div>
+    <footer>
+      <p>
+        &copy; BrianAir. Design by
+        <a href="http://kyle.gdn" rel="nofollow">Kyle Follansbee</a>.
+      </p>
+    </footer>
+    <script>
+      var mountNode = document.getElementById("root");
+    </script>
+    <script>
+      var mountNode = document.getElementById("prompt");
+    </script>
+    <script>
+      var mountNode = document.getElementById("buttons");
+    </script>
+    <script>
+      var mountNode = document.getElementById("depart");
+    </script>
+    <script>
+      var mountNode = document.getElementById("destination");
+    </script>
+    <script>
+      var mountNode = document.getElementById("class");
+    </script>
+    <script>
+      var mountNode = document.getElementById("date");
+    </script>
+    <script>
+      var mountNode = document.getElementById("accessible");
+    </script>
+    <script>
+      var mountNode = document.getElementById("passengersAdult");
+    </script>
+    <script>
+      var mountNode = document.getElementById("passengersYouth");
+    </script>
+    <script>
+      var mountNode = document.getElementById("passengersChild");
+    </script>
+    <script>
+      var mountNode = document.getElementById("passengersInfant");
+    </script>
+  </body>
+</html>

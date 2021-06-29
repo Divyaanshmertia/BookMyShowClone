@@ -4,7 +4,7 @@ import { Switch } from "react-router-dom";
 import HallForm from "./components/HallForm";
 import SignUp from "./components/Signup";
 import Login from "./components/Login";
-
+import CustomizedDialogs from "./components/Final Submission";
 import ShowCards from "./components/notdecided";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,6 +13,9 @@ import Error from "./components/error";
 import ShowCards1 from "./components/MovieCards";
 import Home1 from "./components/home1";
 import CustomPage from "./components/CustomPage";
+import SeatBooking from "./Seat/SeatBooking";
+import Invoice from "./Seat/invoice";
+import SearchBar from "./components/searchBar.js";
 
 class App extends React.Component {
   state = {
@@ -38,7 +41,11 @@ class App extends React.Component {
           <Switch>
             <Route path={"/"} exact>
               <Home />
+              <SearchBar />
               <ShowCards />
+            </Route>
+            <Route path="/invoice">
+              <Invoice />
             </Route>
             <Route path={"/login"}>
               <Login setUserState={this.setUserState} />
@@ -51,13 +58,15 @@ class App extends React.Component {
             </Route>
             <Route path={"/movies"}>
               <Home1 />
-              <ShowCards1 />
+              <ShowCards />
             </Route>
             <Route path={"/movie/:id"}>
               <CustomPage />
             </Route>
-            <Route path={"/movieseat/:id"}>
-              <HallForm />
+            <Route path="/movieseat/:id" component={SeatBooking} />
+
+            <Route path={"/Submit"}>
+              <CustomizedDialogs />
             </Route>
             <Route path={"/contact-us"}></Route>
             <Route path={"/error"}>

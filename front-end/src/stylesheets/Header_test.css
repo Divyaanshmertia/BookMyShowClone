@@ -1,0 +1,26 @@
+.header_search {
+	display: flex;
+	flex: 0.47;
+	align-items: center;
+	width: 549px;
+	background-color: rgb(255, 255, 255);
+	border: transparent;
+	border-radius: 4px;
+	cursor: text;
+}
+
+.header_input {
+	padding: 6px;
+	width: 80vh;
+}
+
+.header_input > input:focus {
+	outline: none;
+}
+
+.search_text {
+	width: 95%;
+	font-size: 13px;
+	padding: 0px;
+	border: none;
+}
